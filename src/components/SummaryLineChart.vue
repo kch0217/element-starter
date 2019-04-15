@@ -15,9 +15,6 @@
 		props: ['chosen'],
 		data(){
 			return {
-				width: 600,
-				height: 600,
-				line: '',
 				xid: 'xAxisG',
 				yid: 'yAxisG',
 				all_data:[],
@@ -45,8 +42,10 @@
 
 			var svg = d3.select(this.$el)
 			.append('svg')
-			.attr('width', 1000)
-			.attr('height', 600)
+			.attr('width', "100%")
+			.attr('height', "100%")
+			.attr('viewBox', "0 0 1100 500")
+			.attr('preserveAspectRatio', "xMidYMid meet")
 
 
 			var xExtent = d3.extent(data, function(d, i) { return d.date; })
@@ -88,6 +87,14 @@
 			.attr('transform', 'translate(80,0)')
 			.call(yAxis);
 
+			svg.append("text")
+	        .attr("x", (1100 / 2))             
+	        .attr("y", 480 )
+	        .attr("text-anchor", "middle")  
+	        .style("font-size", "16px") 
+	        .style("text-decoration", "underline")  
+	        .text("Daily xAPI Logs Received");
+
 
         //  var color = d3.scaleOrdinal()
         // .range(['#40c9c6', '#FF9C42', '#FFF06A']);
@@ -97,8 +104,8 @@
 
 	        var legend = svg.append('g')
 	        .attr('id', 'legend')
-	        .attr('transform', 'translate(80, 450)')
-	        .style('opacity', '0');
+	        .attr('transform', 'translate(600, 480)')
+	        .style('opacity', '1');
 
 
 	        var dateText = legend.append('text')
@@ -166,45 +173,39 @@
 	        			.style("cursor", "none");
 	        		});;
 
-       // var linegroup = linesG.selectAll('.line-group').data(data[0]).enter().append('g').attr('class', 'line-group').on("mouseover", function(d,i){
-       // 	svg.append("text").attr("class", "title-text").style("fill", color[key]).  
-       // })  
 
 
 
-        // var totalLength = path.node().getTotalLength();
+        var totalLength = path.node().getTotalLength();
 
 
 
-        // path
-        //   .attr('stroke-dasharray', totalLength + ' ' + totalLength)
-        //   .attr('stroke-dashoffset', totalLength)
-        //   .transition()
-        //   .duration(2000)
-        //     .ease(d3.easeCubicInOut)
-        //   .attr('stroke-dashoffset', 0);
+        path
+          .attr('stroke-dasharray', totalLength + ' ' + totalLength)
+          .attr('stroke-dashoffset', totalLength)
+          .transition()
+          .duration(2000)
+            .ease(d3.easeCubicInOut)
+          .attr('stroke-dashoffset', 0);
 
-        // paths[key] = path;
+        paths[key] = path;
 
 
-        // legend.append('rect')
-        //   .attr('class', 'legend-text')
-        //   .attr('fill', color(key))
-        //   .attr('x', function() {
-        //     return 60 * index + 70;
-        //   })
-        //   .attr('height', 20)
-        //   .attr('width', 20)
-        //   .attr('y', 5);
+        legend.append("circle").attr("cx",
+        	function(){
+        		return index*100
+        	})
+        .attr("cy",0).attr("r", 6).style("fill", color[key])
 
-        // legend.append('text')
-        //   .attr('id', 'text' + key)
-        //   .attr('class', 'legend-text')
-        //   .attr('fill', 'black')
-        //   .attr('x', function() {
-        //     return 60 * index + 93;
-        //   })
-        //   .attr('y', 20);
+
+        legend.append('text')
+          .attr('id', 'text' + key)
+          .attr('class', 'legend-text')
+          .attr('fill', 'black')
+          .attr('x', function() {
+            return 80 * index+index*index*6+25;
+          })
+          .attr('y', 5).text(key);
 
         index--;
     }
