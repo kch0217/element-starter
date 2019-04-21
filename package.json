@@ -11,6 +11,8 @@
     "axios": "^0.18.0",
     "d3": "^5.9.2",
     "element-ui": "^2.3.4",
+    "highcharts": "^7.1.1",
+    "highcharts-vue": "^1.2.0",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
     "vue": "^2.5.16",

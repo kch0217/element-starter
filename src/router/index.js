@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Layout from '../components/Layout'
 import Overview from '../components/Overview'
 import Summarychart from '../components/SummaryLineChart'
-
+import Course from '../components/Course'
 
 Vue.use(Router)
 
@@ -22,10 +22,11 @@ const router = new Router({
 					path: '',
 					name: 'overview',
 					component: Overview,
-					children:[
-
-
-					]
+				},
+				{
+					path: 'course/comp102x',
+					name: 'comp102x',
+					component: Course,
 				}
 			]
 		}

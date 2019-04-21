@@ -14,8 +14,9 @@
       @close="handleClose"
       background-color="#545c64"
       text-color="#fff"
-      active-text-color="#ffd04b">
-      <el-menu-item index="1">
+      active-text-color="#ffd04b"
+      @select="handleSelect">
+      <el-menu-item index="overview">
         <i class="el-icon-info"></i>
         <span>Overview</span>
       </el-menu-item>
@@ -25,13 +26,13 @@
           <span>Courses</span>
         </template>
         <el-menu-item-group title="edX">
-          <el-menu-item index="2-1">COMP102x</el-menu-item>
+          <el-menu-item index="comp102x">COMP102x2T2014</el-menu-item>
         </el-menu-item-group>
         <el-menu-item-group title="Moodle">
-          <el-menu-item index="2-2">Vjx</el-menu-item>
+          <el-menu-item index="vjx">Vjx_vjx_3T2016</el-menu-item>
         </el-menu-item-group>
         <el-menu-item-group title="Trumptech">
-          <el-menu-item index="2-3">Learnlex</el-menu-item>
+          <el-menu-item index="learnlex">Learnlex</el-menu-item>
         </el-menu-item-group>
       </el-submenu>
       <el-menu-item index="3">
@@ -67,6 +68,13 @@
       },
       handleClose(){
         return
+      },
+      handleSelect(event){
+        if (event == "comp102x" || event == "vjx" || event == "learnlex")
+          this.$router.push({ name: "comp102x" })
+        else
+          this.$router.push({ name: event })
+
       }
     }
 

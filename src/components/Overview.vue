@@ -68,6 +68,7 @@
   </el-col>
 
 </el-row>
+<br/>
 <el-row :gutter="40" justify="space-around" type="flex">
 
   <el-col :xs="12" :sm="12" :lg="8">
