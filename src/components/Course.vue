@@ -1,6 +1,6 @@
 <template>
 <div>
-  <div class="course-title"><h1>Course Code: COMP102x Course Offering: 2T2014</h1></div>
+  <div class="course-title"><h1>Course Code: COMP102x</h1><h4> Course Offering: 2T2014</h4></div>
   
   <el-row :gutter="10" class="panel-group">
     <el-col :xs="12" :sm="12" :lg="6" class="c
@@ -59,7 +59,7 @@
   <el-tabs type="border-card">
   <el-tab-pane label="Feature Extraction"><FeatureEx /></el-tab-pane>
   <el-tab-pane label="Model Training">Config</el-tab-pane>
-  <el-tab-pane label="Reporting Tools">Role</el-tab-pane>
+  <el-tab-pane label="Reporting Tools"><CourseReport /></el-tab-pane>
   <el-tab-pane label="Settings">Settings</el-tab-pane>
 </el-tabs>
 </div>
@@ -69,10 +69,12 @@
 
 <script>
   import FeatureEx from './FeatureEx'
+  import CourseReport from './CourseReportTool'
 
 	export default {
     components:{
-      FeatureEx
+      FeatureEx,
+      CourseReport
     },
     data(){
       return{

@@ -71,7 +71,7 @@
 <br/>
 <el-row :gutter="40" justify="space-around" type="flex">
 
-  <el-col :xs="12" :sm="12" :lg="8">
+  <el-col :xs="12" :sm="12" :lg="12">
     <el-card class="box-card" shadow="hover">
       <div slot="header" class="clearfix">
         <h1  class="lms-info-title">Learning Record Store</h1>
@@ -103,16 +103,25 @@
 
 
 
-<el-col  :xs="12" :sm="12" :lg="8">
+<el-col  :xs="12" :sm="12" :lg="12">
   <el-card class="box-card" shadow="hover">
     <div slot="header" class="clearfix">
-      <h1 class="lms-info-title">Available Tools</h1>
+      <h1 class="lms-info-title">Learning Analytics Server</h1>
 
     </div>
 
     <div>
-      <div class="text item">Learning Performance Prediction</div>
-      <div class="text item">Visualization</div>
+      <div class="text item">Admin Dashboard URL: http://localhost:78976</div>
+      <div class="text item">Login Details: 
+                  <el-popover
+          placement="right"
+          width="400"
+          trigger="click">
+          <div>Username: chkwokad@connect.ust.hk</div>
+          <div>Password: 123456</div>
+          <el-button slot="reference">Click to check</el-button>
+        </el-popover>
+      </div>
     </div>
   </el-card>
 

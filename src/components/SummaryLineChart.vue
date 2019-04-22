@@ -24,7 +24,7 @@
 				yMax:0
 			}
 		},
-		mounted() {
+		mounted: function() {
 			var num = function(max) {
 				return Math.abs(Math.floor(Math.random() * max) + (max - 200));
 			}
